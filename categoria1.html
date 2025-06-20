@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoría 1 - Elecciones más populares</title>
+    <link rel="stylesheet" href="categoria1.css">
+</head>
+<body>
+    <div class="buscador-contenedor">
+    <input type="text" id="buscador" placeholder="Buscar producto..." onkeyup="filtrarProductos()">
+</div>
+    <!-- "body" -->
+    <header>
+    <h1 class="titulo-interactivo">
+        <span>E</span><span>l</span><span>e</span><span>c</span><span>c</span><span>i</span><span>o</span><span>n</span><span>e</span><span>s</span>
+        <span>&nbsp;</span>
+        <span>m</span><span>á</span><span>s</span>
+        <span>&nbsp;</span>
+        <span>p</span><span>o</span><span>p</span><span>u</span><span>l</span><span>a</span><span>r</span><span>e</span><span>s</span>
+    </h1>
+</header>
+   
+    <main>
+<!-- Carrusel de imágenes -->
+<div class="carrusel">
+    <div class="carrusel-inner">
+        <img src="imagenesahdent/carru1.avif" alt="Destacado 1" class="carrusel-img active">
+        <img src="imagenesahdent/carru2.avif" alt="Destacado 2" class="carrusel-img">
+        <img src="imagenesahdent/carru3.avif" alt="Destacado 3" class="carrusel-img">
+    </div>
+    <button class="carrusel-btn prev" onclick="moverCarrusel(-1)">&#10094;</button>
+    <button class="carrusel-btn next" onclick="moverCarrusel(1)">&#10095;</button>
+</div>
+
+<script>
+let carruselIndex = 0;
+const imgs = document.querySelectorAll('.carrusel-img');
+let carruselInterval;
+
+function mostrarCarrusel(n) {
+    imgs.forEach(img => img.classList.remove('active'));
+    carruselIndex = (n + imgs.length) % imgs.length;
+    imgs[carruselIndex].classList.add('active');
+}
+
+function moverCarrusel(dir) {
+    mostrarCarrusel(carruselIndex + dir);
+    reiniciarCarruselAuto();
+}
+
+function carruselAuto() {
+    carruselInterval = setInterval(() => {
+        mostrarCarrusel(carruselIndex + 1);
+    }, 3500);
+}
+
+function reiniciarCarruselAuto() {
+    clearInterval(carruselInterval);
+    carruselAuto();
+}
+
+// Inicialización
+mostrarCarrusel(0);
+carruselAuto();
+</script>
+
+        <!-- "main" -->
+        <section id="populares">
+            <!-- "section" -->
+            <article class="producto grande">
+                <img src="imagenesahdent/prod5.jpg" alt="Producto Popular 1">
+                <h2>Corona de bio med cler resin</h2>
+                <p class="precio">$20.000</p>
+                <p class="descripcion">Este producto es el numero 1 de nuestra lista de mas venduidos y eso es gracias a su calidaad, efectividad  y precio accesible.</p>
+                <button onclick="agregarAlCarrito('Producto Popular 1')">🛒 Agregar al carrito</button>
+            </article>
+            <article class="producto grande">
+                <img src="imagenesahdent/prod6.jpg" alt="Producto Popular 2">
+                <h2>tornillos bloqueadores esfericos</h2>
+                <p class="precio">$300.000</p>
+                <p class="descripcion">Destacado por su durabilidad y diseño moderno. Una opción recomendada por nuestros clientes.</p>
+                <button onclick="agregarAlCarrito('Producto Popular 2')">🛒 Agregar al carrito</button>
+            </article>
+            <article class="producto grande">
+                <img src="imagenesahdent/prod16.jpg" alt="Producto Popular 3">
+                <h2>Tacto Implante Luke arm bio med cler resin</h2>
+                <p class="precio">100.000$</p>
+                <p class="descripcion">Perfecto para quienes buscan funcionalidad y estilo en un solo producto. ¡No te lo pierdas!</p>
+                <button onclick="agregarAlCarrito('Producto Popular 3')">🛒 Agregar al carrito</button>
+            </article>
+            <article class="producto grande">
+                <img src="imagenesahdent/prod19.jpg" alt="Producto Popular 2">
+                <h2>Portesis dental removible Bio med cler resin</h2>
+                <p class="precio">$2500.00</p>
+                <p class="descripcion">Destacado por su durabilidad y diseño moderno. Una opción recomendada por nuestros clientes.</p>
+                <button onclick="agregarAlCarrito('Producto Popular 2')">🛒 Agregar al carrito</button>
+            </article>
+            <article class="producto grande">
+                <img src="imagenesahdent/prod15.jpg" alt="Producto Popular 3">
+                <h2>Interfaz neuronal base en bio med black resin</h2>
+                <p class="precio">$200.000</p>
+                <p class="descripcion">Perfecto para quienes buscan funcionalidad y estilo en un solo producto. ¡No te lo pierdas!</p>
+                <button onclick="agregarAlCarrito('Producto Popular 3')">🛒 Agregar al carrito</button>
+            </article>
+           
+            
+        </section>
+    </main>
+    <nav class="nav-bottom">
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="categoria2.html">Categoría 2</a></li>
+        <li><a href="categoria3.html">Categoría 3</a></li>
+    </ul>
+</nav>
+    <footer>
+        <!-- "footer" -->
+        <p>© 2025 Tienda Virtual Azdent</p>
+    </footer>
+    <script>
+        // "script"
+        function agregarAlCarrito(producto) {
+            const confirmar = confirm(`¿Deseas agregar "${producto}" al carrito?`);
+            if (confirmar) {
+                const nombre = prompt("Por favor, ingresa tu nombre completo:");
+                const documento = prompt("Ingresa tu documento de identidad:");
+                const tarjeta = prompt("Ingresa el número de tu tarjeta:");
+                if (nombre && documento && tarjeta) {
+                    alert(`"${producto}" ha sido agregado al carrito.\nNombre: ${nombre}\nDocumento: ${documento}\nTarjeta: ${tarjeta}`);
+                } else {
+                    alert("No ingresaste todos los datos requeridos. El producto no fue agregado.");
+                }
+            } else {
+                alert(`"${producto}" no fue agregado al carrito.`);
+            }
+        }
+    </script>
+ <!-- Agrega este script antes del cierre de </body> -->
+<script>
+function filtrarProductos() {
+    const input = document.getElementById('buscador').value.toLowerCase();
+    const productos = document.querySelectorAll('#populares .producto.grande');
+    productos.forEach(producto => {
+        const texto = producto.textContent.toLowerCase();
+        producto.style.display = texto.includes(input) ? '' : 'none';
+    });
+}
+</script>
+</body>
+</html>

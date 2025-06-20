@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoría 3 - Métodos de Pago y Socios</title>
+    <link rel="stylesheet" href="categoria3.css">
+</head>
+<body>
+    <header>
+     <h1 class="titulo-interactivo">
+    <span>Ú</span><span>n</span><span>e</span><span>t</span><span>e</span>
+    <span>&nbsp;</span>
+    <span>a</span>
+    <span>&nbsp;</span>
+    <span>n</span><span>o</span><span>s</span><span>o</span><span>t</span><span>r</span><span>o</span><span>s</span>
+</h1>
+    </header>
+    <main>
+        <section class="tarjeta-larga registro">
+            <h2>¡Regístrate y recibe todas las notificaciones!</h2>
+            <p>
+                Sé parte de nuestra comunidad de socios y recibe novedades, ofertas exclusivas y beneficios especiales directamente en tu correo.
+                <br><br>
+                <button class="btn-registro" onclick="abrirRegistro()">Registrarme ahora</button>
+            </p>
+        </section>
+        <section class="tarjeta-larga metodos">
+            <h2>Métodos de pago aceptados</h2>
+            <p>
+                Trabajamos con los principales métodos y tarjetas para tu comodidad:
+            </p>
+            <div class="iconos-metodos">
+                <img src="imagenesahdent/UALA.webp" alt="UALA" title="UALA">
+                <img src="imagenesahdent/Naranja-X-.png" alt="Naranja-X" title="Naranja-X">
+                <img src="imagenesahdent/PerssonaPay.png" alt="PerssonaPay" title="PersonalPay">
+                <img src="imagenesahdent/mercadopago.jpg" alt="mercadopago" title="MercadoPago">
+                <img src="imagenesahdent/Mastercard.webp" alt="Mastercard" title="Mastercard">
+                <img src="imagenesahdent/VISA.webp" alt="VISA" title="VISA">
+            </div>
+            <ul class="lista-metodos">
+                <li>¡Tambien aceptamos efectivo!</li>
+    
+            </ul>
+        </section>
+    </main>
+
+    <!-- Modal de registro -->
+    <div id="modal-registro" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarRegistro()">&times;</span>
+            <h2>Crear cuenta</h2>
+            <form id="form-registro" onsubmit="enviarRegistro(event)">
+                <label>Correo electrónico:
+                    <input type="email" name="correo" required>
+                </label>
+                <label>Usuario:
+                    <input type="text" name="usuario" required>
+                </label>
+                <label>Contraseña:
+                    <input type="password" name="contrasena" required>
+                </label>
+                <button type="submit">Crear cuenta</button>
+            </form>
+        </div>
+    </div>
+
+    <nav class="nav-bottom">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="categoria1.html">Categoría 1</a></li>
+            <li><a href="cateegoria2.html">Categoría 2</a></li>
+        </ul>
+    </nav>
+    <footer>
+        <p>© 2025 Tienda Virtual Azdent</p>
+    </footer>
+    <script>
+    function abrirRegistro() {
+        document.getElementById('modal-registro').style.display = 'flex';
+    }
+    function cerrarRegistro() {
+        document.getElementById('modal-registro').style.display = 'none';
+        document.getElementById('form-registro').reset();
+    }
+    function enviarRegistro(e) {
+        e.preventDefault();
+        alert('¡Cuenta creada con éxito!');
+        cerrarRegistro();
+    }
+    window.onclick = function(event) {
+        const modal = document.getElementById('modal-registro');
+        if (event.target === modal) {
+            cerrarRegistro();
+        }
+    }
+    </script>
+</body>
+</html>

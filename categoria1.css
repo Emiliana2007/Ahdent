@@ -1,0 +1,241 @@
+body {
+    background: #fff;
+    color: #111;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Carrusel */
+.carrusel {
+    width: 100%;
+    max-width: 700px;
+    margin: 32px auto 48px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: 0 4px 32px #00e5ff22;
+    background: #fff;
+}
+
+.carrusel-inner {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1);
+}
+
+.carrusel-img {
+    min-width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: none;
+    border-radius: 24px;
+}
+
+.carrusel-img.active {
+    display: block;
+}
+
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #00E5FF;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.8;
+    transition: background 0.3s, transform 0.3s;
+}
+.carrusel-btn:hover {
+    background: #90A4AE;
+    transform: scale(1.1);
+}
+.carrusel-btn.prev { left: 16px; }
+.carrusel-btn.next { right: 16px; }
+
+/* Productos grandes y centrados */
+#populares {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.producto.grande {
+    width: 90vw;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px #90A4AE33, 0 1.5px 8px #00e5ff22;
+    padding: 32px 24px;
+    margin: 0 auto;
+    text-align: center;
+    border: 3px solid #00E5FF;
+    transition: 
+        background 0.4s cubic-bezier(.4,2,.6,1),
+        color 0.4s cubic-bezier(.4,2,.6,1),
+        box-shadow 0.4s cubic-bezier(.4,2,.6,1),
+        transform 0.4s cubic-bezier(.4,2,.6,1);
+}
+.producto.grande:hover {
+    background: #111;
+    color: #fff;
+    box-shadow: 0 12px 48px #00e5ff99, 0 4px 24px #90A4AE;
+    transform: scale(1.08);
+    border-color: #fff;
+}
+.producto.grande img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 16px #00E5FF22;
+    transition: transform 0.3s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.producto.grande h2 {
+    font-size: 2rem;
+    margin: 16px 0 8px 0;
+    color: #00E5FF;
+    transition: color 0.4s;
+}
+.producto.grande .precio {
+    font-size: 1.3rem;
+    color: #00E5FF;
+    margin-bottom: 10px;
+    transition: color 0.4s;
+}
+.producto.grande .descripcion {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 18px;
+    transition: color 0.4s;
+}
+.producto.grande:hover h2,
+.producto.grande:hover .precio,
+.producto.grande:hover .descripcion {
+    color: #fff;
+}
+
+
+/* Agrega o reemplaza en categoria1.css */
+.buscador-contenedor {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 24px;
+}
+#buscador {
+    width: 600px;
+    max-width: 90vw;
+    padding: 18px 28px;
+    border: 2.5px solid #00E5FF;
+    border-radius: 32px;
+    font-size: 1.3rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+    box-shadow: 0 2px 12px #00E5FF22;
+    background: #f8fbff;
+    color: #333;
+}
+#buscador::placeholder {
+    color: #B0BEC5;
+    font-style: italic;
+    opacity: 1;
+}
+#buscador:focus {
+    border-color: #90A4AE;
+    box-shadow: 0 4px 16px #00E5FF33;
+    background: #fff;
+}
+
+
+
+
+
+
+/* Nav flotante abajo, negro, letras blancas, bordes redondeados y borde cian */
+.nav-bottom {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    width: auto;
+    min-width: 320px;
+    max-width: 90vw;
+    background: #111;
+    border-radius: 32px;
+    border: 3px solid #00E5FF;
+    box-shadow: 0 4px 32px #00e5ff55, 0 2px 16px #90A4AE44;
+    z-index: 100;
+    padding: 0 24px;
+}
+
+.nav-bottom ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 10px 0;
+    gap: 40px;
+}
+
+.nav-bottom ul li a {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 20px;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+    display: block;
+}
+
+.nav-bottom ul li a:hover {
+    background: #00E5FF;
+    color: #111;
+    transform: scale(1.1) translateY(-3px);
+}
+
+
+/* Agrega esto a tu categoria1.css */
+.titulo-interactivo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #000000;
+    letter-spacing: 2px;
+    margin: 0 auto 18px auto;
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+}
+.titulo-interactivo span {
+    display: inline-block;
+    transition: transform 0.25s cubic-bezier(.4,2,.6,1), color 0.25s;
+}
+.titulo-interactivo span:hover {
+    transform: scale(1.5) rotate(-8deg);
+    color: #57b1ff;
+}
+
+
+
+
+
+
